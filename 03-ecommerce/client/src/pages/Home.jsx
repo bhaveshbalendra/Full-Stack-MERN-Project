@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import NavBar from "./../components/Navbar";
 import CardsList from "../components/CardsList";
 import { useEffect } from "react";
