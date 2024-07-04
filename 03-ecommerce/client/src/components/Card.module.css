@@ -1,0 +1,15 @@
+.section_card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  .section_content {
+    .section_quantity {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
