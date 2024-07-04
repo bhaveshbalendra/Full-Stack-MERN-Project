@@ -1,9 +1,8 @@
 const User = require("../models/userModel");
 
-async function handleUserSignUp(req, res) {
-  const { name, email, password } = req.body;
-  await User.create({ name, email, password });
-  return res.render("/");
+async function handleHomeValidUser(req, res) {
+  const user = req.user;
+  return res.status(200).json({ message: "valid user", user });
 }
 
-module.exports = { handleUserSignUp };
+module.exports = { handleHomeValidUser };

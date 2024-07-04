@@ -29,8 +29,8 @@ function Login() {
         "http://localhost:5000/user/login",
         formData
       );
-      console.log(response);
-      if (response.status === 200) {
+
+      if (response.status === 200 && response.data.Login) {
         setResponse(response.data.message);
         setFormData({
           email: "",

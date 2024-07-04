@@ -10,7 +10,6 @@ function SignUp() {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
-  console.log(formData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({

@@ -15,25 +15,29 @@ import Contact from "./pages/Contact";
 export const MyContext = createContext();
 
 function App() {
-  const [data, setData] = useState([]);
+  const [itemData, setItemData] = useState([]);
+  const [userData, setUserData] = useState({});
 
   const getApiData = async () => {
     try {
       const res = await axios.get("/products");
-      setData(res.data);
+      setItemData(res.data);
     } catch (error) {
       console.log("There is error", error);
     }
   };
 
+  const contexValue = {
+    itemData,
+    userData,
+    setUserData,
+  };
   useEffect(() => {
     getApiData();
   }, []);
 
-  console.log(data);
-
   return (
-    <MyContext.Provider value={data}>
+    <MyContext.Provider value={contexValue}>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />

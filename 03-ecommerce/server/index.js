@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const userRoute = require("./routes/userRoute");
+const homeRoute = require("./routes/staticRoute");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const { checkForAuthentication, restrictTo } = require("./middlewares/auth");
@@ -30,5 +31,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(checkForAuthentication);
 
 // app.use("/user", restrictTo(["NORMAL"]), userRoute);
+app.use("/", homeRoute);
 app.use("/user", userRoute);
 app.listen(PORT, () => console.log(`Server Has started`));

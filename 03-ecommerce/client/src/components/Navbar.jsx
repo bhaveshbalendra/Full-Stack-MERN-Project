@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { FaRegUserCircle } from "react-icons/fa";
+import { MyContext } from "../App";
+import { useContext } from "react";
 
 function NavBar() {
+  const { userData } = useContext(MyContext);
+  console.log(userData);
   return (
     <div className="container">
       <nav>
@@ -21,7 +25,7 @@ function NavBar() {
             <details>
               <summary>
                 <FaRegUserCircle />
-                <span>User</span>
+                <span>{userData ? userData.role : "Login"}</span>
               </summary>
               <ul>
                 <NavLink to="/myprofile">
